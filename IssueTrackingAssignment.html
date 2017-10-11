@@ -1,0 +1,69 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class ReportComponent extends React.Component{
+    
+    constructor(){
+        super();
+        
+        this.state= {
+            heading : "Issue Tracking Report",
+            completed: ['Work On UI Part','Work On Trainer Module','Testing Of Back End','Base Lining Of New Branch','Create PPT For Next Batch'],
+            incomplete:  ['Create Build Of Angular 2','Planning For The Next Batch','Changes In The Rest']
+        }
+
+    }
+
+    render(){
+        return(
+            <div>
+                <p><strong>{this.state.heading}</strong></p>
+                <hr/>
+                <CompleteComponent projList ={this.state.completed} />
+                <hr/>
+                <PendingComplete projList ={this.state.incomplete} />
+            </div>      
+        );  
+    }
+
+}
+
+class CompleteComponent extends React.Component{
+
+    render(){
+        return(
+            <div>
+                <ul>
+                    {
+                        this.props.projList.map(function (param) {
+                         return <li>{param}</li>;   
+                        })
+                    }
+                </ul>
+            </div>
+        );
+    }
+
+}
+
+class PendingComplete extends React.Component{
+
+    render(){
+        return(
+            <div>
+                <ul>
+                    {
+                      this.props.projList.map(function(param){
+                        return <li>{param}</li>
+                      })      
+                    }
+                </ul>
+            </div>    
+        );
+
+    }
+
+
+}
+
+ReactDOM.render(<ReportComponent/>,document.getElementById("root"));

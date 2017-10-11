@@ -1,0 +1,92 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+
+
+class HeaderComponent extends React.Component{
+    render(){
+        return(
+            <div>
+           <LogoComponent/>
+           <NavigationComponent/>
+            </div>
+        );
+    }
+
+} 
+
+
+class LogoComponent extends React.Component{
+    render(){
+        return(
+            <div>
+            <p>Logo</p>
+        </div>
+        );
+    }
+
+} 
+class NavigationComponent extends React.Component{
+    render(){
+        return(
+            <div>
+            HOME | ABOUT US | CONTACT US
+        </div>
+        );
+    }
+
+} 
+class SearchComponent extends React.Component{
+    render(){
+        return(
+            <div>
+            <form>
+                <input type="text" placeholder="serach site"/>
+                <button>Search</button>
+             </form>       
+        </div>
+        );
+    }
+
+} 
+class IssuesComponent extends React.Component{
+    render(){
+        return(
+            <div>
+            <table> 
+                 <tr>
+                     <th>#</th>
+                     <th>Name</th>
+                     <th>Task</th>
+                     <th>Assigned By</th>        
+                     <th>Status</th>
+                     <th>Operation</th>
+                  </tr> 
+                  <tr>
+                       <td>1</td>
+                       <td>anvesh</td>
+                       <td>UI Improvement</td>  
+                       <td>Pankaj</td>
+                       <td>Pending</td>
+                       <td><a href="">Edit</a> | <a href="">Delete</a></td>
+                  </tr>      
+             </table>
+      </div>  
+        );
+    }
+
+} 
+class IssueContainer extends React.Component{
+    render(){
+        return(
+            <div>
+                IssueContainer
+                    <div><HeaderComponent/></div>
+                    <div><SearchComponent/></div>
+                     <div><IssuesComponent/></div>   
+        </div>
+        );
+    }
+}
+ReactDOM.render(<IssueContainer/>,document.getElementById("root"));

@@ -1,0 +1,66 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+class ProjectContainer extends React.Component{
+    render(){
+
+        var name='Srividya';
+        var projects= ['YTMS','YOTA','YTDMS','sigma','Moci','kk sons','ketterpillar'];
+
+        return(
+           
+            <div>
+               <p>Projects assigned to: <strong>{name}</strong></p>
+                <hr/>
+            <ShowProjectList projList={projects}/>
+            <hr/>
+            <InternalProjectComponent projList={projects}/>
+            </div>
+            
+        );
+    }
+
+}
+
+class ShowProjectList extends React.Component{
+    render(){
+
+        return(
+
+            <div>
+                <h3>Projects</h3>
+
+            <ul>
+            {
+                this.props.projList.map(function (project) {
+                return <li>{project}</li>;   
+            })
+            }
+           </ul>
+            </div>
+        );
+   }
+
+}
+
+class InternalProjectComponent extends React.Component{
+    render(){
+        return(
+            <div>
+                <p><h3>Internal applications</h3></p>
+            
+            <ol>
+                {this.props.projList.filter(function(internalProject)
+                
+                {return internalProject[0]==='Y'}).map(function(intProj){
+                    return<li>{intProj}</li>;
+                })}
+            </ol>
+            </div>
+        );
+    }
+
+}
+
+ReactDOM.render(<ProjectContainer/>,document.getElementById("root"));
